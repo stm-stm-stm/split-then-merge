@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stm"
+version = "0.1.0"
+description = "Layer-Aware Video Composition via Split-then-Merge (StM): Decomposer data pipeline + CogVideoX-I2V Composer training"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Ozgur Kara" }]
+dynamic = ["dependencies"]
+
+[tool.setuptools]
+packages = { find = { include = ["stm*"] } }
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"
+exclude = ["third_party", "old"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501", "E731", "E741"]
+
+[tool.ruff.lint.per-file-ignores]
+"stm/utils/__init__.py" = ["F403"]

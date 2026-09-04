@@ -1,0 +1,50 @@
+# Core (training + data generation). Tested with Python 3.12, CUDA 12.8, H100.
+# torch first:  pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cu128
+torch==2.8.0
+torchvision==0.23.0
+xformers==0.0.32.post2
+diffusers==0.35.1
+transformers==4.46.3
+accelerate>=1.0
+peft>=0.13.0
+pydantic>=2.0
+safetensors
+huggingface_hub
+sentencepiece
+protobuf
+tokenizers
+einops
+decord>=0.6.0
+mediapy
+imageio
+imageio-ffmpeg
+opencv-python
+av
+pillow
+numpy<2.3
+pandas
+scipy
+scikit-image
+scikit-learn
+matplotlib
+h5py
+pyyaml
+omegaconf
+hydra-core
+tqdm
+tensorboard
+wandb
+typing_extensions
+
+# data generation (Decomposer)
+timm
+einshape        # tapnet_torch
+flow_vis
+iopath
+yt-dlp
+gdown
+fvcore  # required by the ViCLIP remote modeling code (evaluation)
+# evaluation (optional): google-genai (Gemini judge), qwen-vl-utils + bitsandbytes (local Qwen2.5-VL judge)
+ruff
+pytest
+# SAM2 (vendored, modified by SegAnyMo):  SAM2_BUILD_CUDA=0 pip install -e third_party/SegAnyMo/sam2

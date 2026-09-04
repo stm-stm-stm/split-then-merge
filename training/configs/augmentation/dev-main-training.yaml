@@ -1,0 +1,37 @@
+random_horizontal_flip:
+  is_enabled: true
+  probability: 0.5
+
+random_crop_and_resize:
+  is_enabled: true
+  probability: 0.7
+  crop_scale: [0.5, 2.0]       
+  max_attempts: 20
+  min_mask_coverage: 0.9              
+
+color_shift:
+  is_enabled: true
+  probability: 0.2
+  brightness: [0.0, 0.2]
+  contrast: [0.0, 0.2]
+  saturation: [0.0, 0.2]
+  hue: [0.0, 0.2]
+
+isolate_first_frame:
+  is_enabled: false
+  probability: 0.2 # Apply this effect sparingly
+
+random_spatial_masking:
+  is_enabled: false
+  probability: 0.4
+  mask_ratio: 0.25
+  patch_size: 16
+
+random_temporal_masking:
+  is_enabled: false
+  probability: 0.5
+  mask_ratio: 0.1
+
+save_options:
+  is_enabled: false
+  path: outputs/augmented_samples

@@ -1,0 +1,41 @@
+# Transformation-aware augmentation exactly as stated in the paper (Sec. 4.1):
+#   (1) random horizontal flip p=0.7, (2) random resized crop p=0.7, scale [0.5, 2.0], preserving 90% of the
+#   foreground, (3) colour jitter p=0.2 on the masked foreground, brightness/contrast/saturation/hue in [0, 0.2].
+# (The development config main-training.yaml used flip p=0.5; everything else is identical.)
+random_horizontal_flip:
+  is_enabled: true
+  probability: 0.7
+
+random_crop_and_resize:
+  is_enabled: true
+  probability: 0.7
+  crop_scale: [0.5, 2.0]
+  max_attempts: 20
+  min_mask_coverage: 0.9
+
+color_shift:
+  is_enabled: true
+  probability: 0.2
+  brightness: [0.0, 0.2]
+  contrast: [0.0, 0.2]
+  saturation: [0.0, 0.2]
+  hue: [0.0, 0.2]
+
+isolate_first_frame:
+  is_enabled: false
+  probability: 0.0
+
+random_spatial_masking:
+  is_enabled: false
+  probability: 0.0
+  mask_ratio: 0.25
+  patch_size: 16
+
+random_temporal_masking:
+  is_enabled: false
+  probability: 0.0
+  mask_ratio: 0.1
+
+save_options:
+  is_enabled: false
+  path: ./augmented_results
